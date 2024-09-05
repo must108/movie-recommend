@@ -74,9 +74,12 @@ tfidf = vectorizer.fit_transform(movies["clean_title"])
 inp_title = input("Enter title of the movie: ")
 results = search(inp_title)
 movie_id = results.iloc[0]["movieId"]
-print(find_similar_movies(movie_id))
+suggestions = find_similar_movies(movie_id)
 
-
+if suggestions.empty:
+    print("Title error! Tweak your movie title a bit! (Adding the year may also help!)")
+else:
+    print(suggestions)
 
 
 
