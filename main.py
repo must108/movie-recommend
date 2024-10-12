@@ -25,7 +25,7 @@ def search(title):
 def find_similar_movies(movie_id):
     # find all the users who liked the movie at movie_id
     # then get movies which these users also liked and
-    # get percentage of users who liked simiilar movies
+    # get percentage of users who liked similar movies
     similar_users = ratings[(ratings["movieId"] == movie_id) & 
                             (ratings["rating"] > 4)]["userId"].unique()
     similar_user_recs = ratings[(ratings["userId"].isin(similar_users)) &
